@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.4;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        
+        .restaurant-name {
+            font-size: 36px;
+            font-weight: 900;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .wifi-info {
+            font-size: 20px;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        .menu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .menu-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 600px) {
+            .container {
+                padding: 8px;
+            }
+            
+            .header {
+                padding: 20px 0;
+                margin-bottom: 20px;
+            }
+            
+            .restaurant-name {
+                font-size: 28px;
+                font-weight: 900;
+                letter-spacing: 0.8px;
+            }
+            
+            .wifi-info {
+                font-size: 16px;
+                font-weight: 600;
+            }
+            
+            .menu-grid {
+                gap: 10px;
+            }
+            
+            .menu-item {
+                border-radius: 8px;
+            }
+            
+            .menu-image {
+                width: 100vw;
+                max-width: calc(100vw - 16px);
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="restaurant-name">SỮA CHUA CÔ MAI</h1>
+            <p class="restaurant-address">14C Ô Cách, Đức Giang, Long Biên, Hà Nội</p>
+            <p class="wifi-info">WIFI Password: 66668888</p>
+        </div>
+        
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="menusuachuacaramen.png" alt="Menu 3" class="menu-image" />
+            </div>
+            
+            <div class="menu-item">
+                <img src="chesautaopho.png" alt="Menu 4" class="menu-image" />
+            </div>
+            
+            <div class="menu-item">
+                <img src="micaycomai.png" alt="Menu 1" class="menu-image" />
+            </div>
+            
+            <div class="menu-item">
+                <img src="menudouonngcomai.png" alt="Menu 2" class="menu-image" />
+            </div>
+            
+            <div class="menu-item">
+                <img src="anvatcomai.png" alt="Menu 5" class="menu-image" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
