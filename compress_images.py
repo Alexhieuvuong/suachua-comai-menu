@@ -3,20 +3,20 @@ import os
 from PIL import Image
 import glob
 
-def compress_image(input_path, output_path, quality=85, max_size=(800, 800)):
-    """Compress an image while maintaining good quality"""
+def compress_image(input_path, output_path, quality=95, max_size=(1200, 1200)):
+    """Compress an image while maintaining sharpness and quality"""
     try:
         with Image.open(input_path) as img:
             # Convert to RGB if necessary
             if img.mode in ('RGBA', 'LA', 'P'):
                 img = img.convert('RGB')
             
-            # Resize if image is too large
+            # Resize if image is too large, but maintain aspect ratio
             if img.size[0] > max_size[0] or img.size[1] > max_size[1]:
                 img.thumbnail(max_size, Image.Resampling.LANCZOS)
             
-            # Save with compression
-            img.save(output_path, 'JPEG', quality=quality, optimize=True)
+            # Save with high quality compression
+            img.save(output_path, 'JPEG', quality=quality, optimize=True, progressive=True)
             
             # Get file sizes
             original_size = os.path.getsize(input_path)
@@ -37,7 +37,7 @@ def main():
     # Get all image files
     image_files = glob.glob("*.png") + glob.glob("*.jpg") + glob.glob("*.jpeg")
     
-    print("🖼️  Compressing images for faster web loading...")
+    print("🖼️  Compressing images with high quality...")
     print("=" * 50)
     
     total_original = 0
@@ -64,7 +64,7 @@ def main():
     print(f"📊 Total size reduction: {total_original/1024/1024:.1f}MB → {total_compressed/1024/1024:.1f}MB")
     print(f"💾 Space saved: {((total_original - total_compressed) / total_original) * 100:.1f}%")
     print(f"📁 Optimized images saved in: {optimized_dir}/")
-    print("\n✨ Your website will now load much faster!")
+    print("\n✨ Images optimized with high quality - sharp and fast loading!")
 
 if __name__ == "__main__":
     main()
